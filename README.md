@@ -1,44 +1,87 @@
-# For homework:
+## Introduce add event listener
+
+- Add a button
+- Click on the button and do an alert
+
+```javascript
+var myButton = document.querySelector('#clickMe');
+
+myButton.addEventListener('click', doSomething);
+
+function doSomething() {
+        alert("Hello!");
+}
+
+//can also show the mouseover event
+myButton.addEventListener('mouseover', doSomething);
+```
  
-### Part 1
+- Solo exercise time: Do the first exercise in the main repo
 
-Open `homework.html` in your browser. Notice there are 3 buttons: blue, orange and green.
-Edit the file `.js/homework.js` and add the following functionality:
+## Retrieving elements and changing styles on them
 
-Clicking on the buttons should change the "theme" of the website:
+- Use the document to get the div with the green background and change its background color
 
-- When clicking **blue** it should change:
-        - **Jumbotron** background color to `#588fbd`
-        - **Donate a bike** button background color to `#ffa500`
-        - **Volunteer** button background color to `black` and text color to `white`
-- When clicking **orange** it should change:
-        - **Jumbotron** background color to `#f0ad4e`
-        - **Donate a bike** button background color to `#5751fd`
-        - **Volunteer** button background color to `#31b0d5` and text color to `white`
-- When clicking **green** it should change:
-        - **Jumbotron** background color to `#87ca8a`
-        - **Donate a bike** button background color to `black`
-        - **Volunteer** button background color to `#8c9c08`
+```javascript
+function doSomething() {
+        var box = document.querySelector('#box');
+        box.style.backgroundColor = "blue";
+}
+```
+- Solo exercise time: Do the second exercise in the main repo
 
-You can use either the `.className` method or setting the styles directly in JavaScript.
+## Adding new elements to a div
 
-Here's an example of how the website should look for the blue button:
+- Add a new paragraph to the div and give it some text using **innerText**
 
-![Blue button example](images/blue_clicked.png)
+```javascript
+function doSomething() {
+        var box = document.querySelector('#box');
+        box.style.backgroundColor = "blue";
+
+        var paragraph = document.createElement('p');
+        paragraph.innerText = "SHOW ME MORE JAVASCRIPT!!";
+        box.appendChild(paragraph);
+}
+```
+- Solo exercise time: Do the third exercise from the main repo
+
+## Discuss the "document" object
+
+Discuss how it's not a magical syntax, but it's actually a plain object created by the browser, with some properties, some of them pointing to functions. 
+
+## Combining a for loop with adding new elements
+
+- Work with them, to use the array of student names, and add each name as a new paragraph inside my div when the first button is clicked
+- Then there should be a second button, that when clicked:
+ - retrieves all the p tags added by the previous button
+ - generates a random index
+ - it changes the background color of the **p** element with that index
+
+- This was a live coding exercise, and I had 4-5 of them come up and code live
+- Everybody was helping the person writing the code, and in the end we built a small app that was selecting random student names (which might be a fun way in the future to encourage people to contribute when nobody wants to answer)
+
+- Solo exercise time: Continue with the next exercise in the main repo 
+
+## Using class name over changing styles explicitly
+
+- Change the previous implementation, so instead of applying a different bgr color explicitly, it just changes the className
  
-### Part 2
+```javascript
+function doSomething() {
+        var box = document.querySelector('#box');
+        box.className = "blue";
+}
+```
 
-Just below the buttons, there's a form called **Register with us**.
+- Solo exercise time: Go back to where you were changing the background color of the jumbotron and apply a new className instead of changing the background color
 
-Continue working in `./js/homework.js` to add the following functionality:
+## Inputs
 
-When the submit button is pressed, it should check that all the form fields are valid:
-- The **Your name**, **Email** and **Describe yourself** fields need to be non-empty (Hint: their `value` length has to be greater than zero)
-- For the **Email** field also check if it contains the `@` character
+- I didn't get to this part, we moved on to AJAX, but they did the homework part that involves inputs
+- This will need setting up in "demo.html"
+- Add input, introduce keyup event
+- Get the first P tag and change its inner text to whatever is in the input
+- When you press the button, delete the text from the both the input and P
 
-For all the fields that invalid, it should make their background color `red`.
-IF all the fields are valid, when you click **Submit** it should:
-- Display an alert to thank you for filling out the form
-- Blank out (make empty) all the text fields
-
-**Important hint:** In your function that handles clicks on the `Submit` button you will need to call `event.preventDefault()` to stop the browser from refreshing the page. To read more on how to do this: https://developer.mozilla.org/en/docs/Web/API/Event/preventDefault 
+- Solo exercise time: continue with final exercise from the main repo
