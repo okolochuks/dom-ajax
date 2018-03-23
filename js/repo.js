@@ -1,41 +1,30 @@
-var students = [
-    'Habiiba',
-    'Anthony',
-    'Simon',
-    'Mohammed Dwina',
-    'Etzali',
-    'Hervin',
-    'Jamal',
-    'Khaled Karaz',
-    'Khaled Yaseen',
-    'Mohamad Rateb',
-    'Nasir',
-    'Won',
-    'Yohannes'
-];
-
-// Math.floor(Math.random() * students.length);
+var myButton = document.querySelector('#clickMe');
+myButton.addEventListener('click', doSomething);
 
 function doSomething() {
-    var studentsContainer = document.querySelector('#students');
-    for(var i=0; i<students.length; i++) {
-        var name = students[i];
-        var paragraph = document.createElement('p');
-        paragraph.innerText = name;
-        studentsContainer.appendChild(paragraph);
-    }
 
+    var students = [
+        'Glasgow',
+        'Edinburgh',
+        'Stirling'
+    ];
+
+    var container = document.querySelector('#students');
+
+    students.forEach(function (student) {
+        var p = document.createElement('p');
+        p.innerText = student;
+        p.style.marginLeft = "0px";        
+        container.appendChild(p);
+    }); 
 }
 
-var pickRandom = document.querySelector('#secondButton');
-pickRandom.addEventListener('click', selectRandom);
+var changeBgrBtn = document.querySelector('#secondButton');
+changeBgrBtn.addEventListener('click', changeBgr);
 
-function selectRandom() {
-    var students = document.querySelectorAll('p');
-    for(var i=0; i<students.length; i++) {
-        students[i].style.backgroundColor = "white";
-    }
-    var randomStudent = Math.floor(Math.random() * students.length);
-
-    students[randomStudent].style.backgroundColor = "red";
+function changeBgr() {
+    document.querySelectorAll('p')
+        .forEach(paragraph => {
+            paragraph.style.marginLeft = parseFloat(paragraph.style.marginLeft) + 10 + "px";
+        });
 }

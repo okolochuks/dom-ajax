@@ -17,13 +17,21 @@
             .blue {
                 background-color: blue !important;
             }
+            #titleUpdater {
+                margin-top: 30px;
+            }
         </style>
 	</head>
 	<body>
+        <h3 id="lessonTitle">Welcome to the DOM!</h3>
         <button id="clickMe">Click me!</button>
-        <button id="secondButton">Second button</button>
+        <button id="secondButton">Change bgr</button>
         <div id="box"></div>
         <div id="students"></div>
+        <div id="titleUpdater">
+            <input type="text" id="titleInput" placeholder="Enter your new title here.."> 
+            <button id="updateTitleBtn">Update title!</button>
+        </div>
 		<script src="./js/demo.js"></script>
 	</body>
 </html>
