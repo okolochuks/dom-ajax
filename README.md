@@ -76,6 +76,7 @@ secondBtn.addEventListener('click', function() {
         cityElement.style.fontSize = "1.5em";
     });
 });
+```
 
 ### Getting the text from an input box
 
@@ -90,5 +91,4 @@ updateTitleBtn.addEventListener('click', function() {
     titleElement.innerText = title;
     inputBox.value = title;
 });
-```
 ```
