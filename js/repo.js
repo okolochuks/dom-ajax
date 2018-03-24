@@ -1,30 +1,39 @@
+var updateTitleBtn = document.querySelector('#updateTitleBtn');
+
+updateTitleBtn.addEventListener('click', function() {
+    var inputBox = document.querySelector('#titleInput');
+    var title = inputBox.value;
+
+    var titleElement = document.querySelector('#lessonTitle');
+    titleElement.innerText = title;
+    inputBox.value = title;
+});
+
+
 var myButton = document.querySelector('#clickMe');
 myButton.addEventListener('click', doSomething);
 
 function doSomething() {
-
-    var students = [
+    var cities = [
         'Glasgow',
         'Edinburgh',
         'Stirling'
     ];
+    var container = document.querySelector('#box');
+    cities.forEach(function(city) {
+        var paragraph = document.createElement('p');
+        paragraph.innerText = city;
+        container.appendChild(paragraph);
+    })
 
-    var container = document.querySelector('#students');
-
-    students.forEach(function (student) {
-        var p = document.createElement('p');
-        p.innerText = student;
-        p.style.marginLeft = "0px";        
-        container.appendChild(p);
-    }); 
 }
 
-var changeBgrBtn = document.querySelector('#secondButton');
-changeBgrBtn.addEventListener('click', changeBgr);
+var secondBtn = document.querySelector('#secondButton');
 
-function changeBgr() {
-    document.querySelectorAll('p')
-        .forEach(paragraph => {
-            paragraph.style.marginLeft = parseFloat(paragraph.style.marginLeft) + 10 + "px";
-        });
-}
+secondBtn.addEventListener('click', function() {
+    var cities = document.querySelectorAll('p');
+
+    cities.forEach(function(cityElement) {
+        cityElement.style.fontSize = "1.5em";
+    });
+});
